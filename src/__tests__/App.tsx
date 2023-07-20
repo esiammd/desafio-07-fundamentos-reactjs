@@ -5,15 +5,15 @@ jest.mock('../utils/formatValue.ts', () => ({
   __esModule: true,
   default: jest.fn().mockImplementation((value: number) => {
     switch (value) {
-      case 6000:
+      case 600000:
         return 'R$ 6.000,00';
-      case 50:
+      case 5000:
         return 'R$ 50,00';
-      case 5950:
+      case 595000:
         return 'R$ 5.950,00';
-      case 1500:
+      case 150000:
         return 'R$ 1.500,00';
-      case 4500:
+      case 450000:
         return 'R$ 4.500,00';
       default:
         return '';
@@ -30,7 +30,7 @@ import App from '../App';
 const apiMock = new MockAdapter(api);
 
 const wait = (amount = 0): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, amount));
+  return new Promise(resolve => setTimeout(resolve, amount));
 };
 
 const actWait = async (amount = 0): Promise<void> => {
@@ -49,7 +49,7 @@ describe('Dashboard', () => {
           id: '807da2da-4ba6-4e45-b4f8-828d900c2adf',
           title: 'Loan',
           type: 'income',
-          value: 1500,
+          value: 150000,
           category: {
             id: '12a0cff7-8691-456d-b1ad-172d777f1942',
             title: 'Others',
@@ -64,14 +64,14 @@ describe('Dashboard', () => {
           id: '3cd3b0e3-73ef-44e9-9f19-8d815eaa7bb4',
           title: 'Computer',
           type: 'income',
-          value: 4500,
+          value: 450000,
           category: {
-            id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+            id: 'f577776a-2a24-419c-bc2a-470d99f2bd1c',
             title: 'Sell',
             created_at: '2020-04-18T19:05:34.000Z',
             updated_at: '2020-04-17T19:05:34.000Z',
           },
-          category_id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+          category_id: 'f577776a-2a24-419c-bc2a-470d99f2bd1c',
           created_at: '2020-04-18T19:05:34.000Z',
           updated_at: '2020-04-18T19:05:34.000Z',
         },
@@ -79,22 +79,22 @@ describe('Dashboard', () => {
           id: 'fb21571c-1087-4427-800c-3c30a484decf',
           title: 'Website Hosting',
           type: 'outcome',
-          value: 50,
+          value: 5000,
           category: {
-            id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+            id: '51b20bc4-27dd-475a-83a6-936110db54d2',
             title: 'Hosting',
             created_at: '2020-04-17T19:05:34.000Z',
             updated_at: '2020-04-17T19:05:34.000Z',
           },
-          category_id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+          category_id: '51b20bc4-27dd-475a-83a6-936110db54d2',
           created_at: '2020-04-19T19:05:34.000Z',
           updated_at: '2020-04-19T19:05:34.000Z',
         },
       ],
       balance: {
-        income: 6000,
-        outcome: 50,
-        total: 5950,
+        income: 600000,
+        outcome: 5000,
+        total: 595000,
       },
     });
 
@@ -116,7 +116,7 @@ describe('Dashboard', () => {
           id: '807da2da-4ba6-4e45-b4f8-828d900c2adf',
           title: 'Loan',
           type: 'income',
-          value: 1500,
+          value: 150000,
           category: {
             id: '12a0cff7-8691-456d-b1ad-172d777f1942',
             title: 'Others',
@@ -131,14 +131,14 @@ describe('Dashboard', () => {
           id: '3cd3b0e3-73ef-44e9-9f19-8d815eaa7bb4',
           title: 'Computer',
           type: 'income',
-          value: 4500,
+          value: 450000,
           category: {
-            id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+            id: 'f577776a-2a24-419c-bc2a-470d99f2bd1c',
             title: 'Sell',
             created_at: '2020-04-18T19:05:34.000Z',
             updated_at: '2020-04-17T19:05:34.000Z',
           },
-          category_id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+          category_id: 'f577776a-2a24-419c-bc2a-470d99f2bd1c',
           created_at: '2020-04-18T19:05:34.000Z',
           updated_at: '2020-04-18T19:05:34.000Z',
         },
@@ -146,22 +146,22 @@ describe('Dashboard', () => {
           id: 'fb21571c-1087-4427-800c-3c30a484decf',
           title: 'Website Hosting',
           type: 'outcome',
-          value: 50,
+          value: 5000,
           category: {
-            id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+            id: '51b20bc4-27dd-475a-83a6-936110db54d2',
             title: 'Hosting',
             created_at: '2020-04-17T19:05:34.000Z',
             updated_at: '2020-04-17T19:05:34.000Z',
           },
-          category_id: '12a0cff7-8691-456d-b1ad-172d777f1942',
+          category_id: '51b20bc4-27dd-475a-83a6-936110db54d2',
           created_at: '2020-04-19T19:05:34.000Z',
           updated_at: '2020-04-19T19:05:34.000Z',
         },
       ],
       balance: {
-        income: 6000,
-        outcome: 50,
-        total: 5950,
+        income: 600000,
+        outcome: 5000,
+        total: 595000,
       },
     });
 
@@ -203,10 +203,10 @@ describe('Dashboard', () => {
 
     const file = new File(
       [
-        'title, type, value, category\
-        Loan, income, 1500, Others\
-        Website Hosting, outcome, 50, Others\
-        Ice cream, outcome, 3, Food',
+        'title, type, value, category' +
+        'Loan, income, 150000, Others' +
+        'Website Hosting, outcome, 5000, Others' +
+        'Ice cream, outcome, 300, Food',
       ],
       'import.csv',
       {
